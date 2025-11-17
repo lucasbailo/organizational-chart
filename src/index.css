@@ -1,1 +1,94 @@
 @import "tailwindcss";
+
+:root {
+    --font-montserrat: "Montserrat", sans-serif;
+    --font-inter: "Inter", sans-serif;
+    font-family: var(--font-montserrat);
+
+    /* === Cores principais === */
+    --color-primary: #0014eb;
+    --color-secondary: #7f88cf;
+    --color-dark: #030d2d;
+    --color-deep: #0a184d;
+    --color-support: #b2a3bd;
+
+    /* === Cores de destaque === */
+    --color-accent: #00afff;
+    --color-white: #ffffff;
+    --color-whatsapp: #00c853;
+
+    /* === Tons neutros e hover === */
+    --color-gray-light: #e0e4ff;
+    --color-gray-soft: #d6d8ff;
+    --color-hover-light: #e6e8ff;
+
+    /* === Gradientes === */
+    --gradient-hero: linear-gradient(to right, #0000af, #0a184d, #0000af);
+    --gradient-primary: linear-gradient(to right, var(--color-primary), var(--color-accent));
+    --gradient-reverse: linear-gradient(to right, var(--color-accent), var(--color-primary));
+}
+
+
+@layer utilities {
+    .text-shadow-inset {
+        color: transparent;
+        /* Tornando o texto transparente */
+        background-image: linear-gradient(to bottom right, var(--color-primary), var(--color-accent));
+        /* Gradiente */
+        background-clip: text;
+        /* Faz o gradiente aparecer no texto */
+        -webkit-background-clip: text;
+        /* Suporte para WebKit */
+        text-shadow: 0.5px 0.5px 0px var(--color-accent);
+        /* Adicionando uma leve sombra ao texto */
+    }
+
+    .text-gradient {
+        font-size: 3rem;
+        /* Ajuste o tamanho da fonte conforme necessário */
+        font-weight: bold;
+        /* Deixe o texto em negrito */
+        color: transparent;
+        /* Torne o texto transparente */
+        background-image: linear-gradient(to bottom right, #fff, #00afff);
+        /* Gradiente de cor */
+        background-clip: text;
+        /* Aplica o gradiente ao texto */
+        -webkit-background-clip: text;
+        /* Suporte para navegadores baseados em Webkit */
+        text-shadow: 0 0 9px rgba(0, 200, 255, 0.1), 0 0 2px rgba(0, 200, 255, 0.3), 0 0 3px rgba(0, 200, 255, 0.3);
+        /* Sombra para o brilho */
+    }
+
+    .border-animated {
+        position: relative;
+        z-index: 10;
+        display: inline-block;
+        /* Garantir que a borda seja aplicada apenas na imagem */
+        border: 2px solid transparent;
+        /* Borda inicial transparente */
+        border-radius: 1rem;
+        /* Ajuste o arredondamento se necessário */
+        animation: borderPulse 5s infinite;
+        /* Animação que faz a borda pulsar */
+    }
+
+    /* Definindo a animação da borda */
+    @keyframes borderPulse {
+        0% {
+            border-color: transparent;
+            box-shadow: 0 0 6px 2px rgba(127, 136, 207, 0.6);
+        }
+
+        50% {
+            border-color: var(--color-secondary);
+            box-shadow: 0 0 12px 3px rgba(127, 136, 207, 0.8);
+            /* Cor mais intensa */
+        }
+
+        100% {
+            border-color: transparent;
+            box-shadow: 0 0 6px 2px rgba(127, 136, 207, 0.6);
+        }
+    }
+}
