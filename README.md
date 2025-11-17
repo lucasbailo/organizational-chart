@@ -1,4 +1,4 @@
-# Modelo de Site
+# Timeco
 
 - Apenas clone o repositório, rode "npm install" e depois para rodar "npm run dev"
 - Node v20.19.0
