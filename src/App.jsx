@@ -3,6 +3,7 @@ import PlayerForm from "./components/PlayerForm";
 import PlayerList from "./components/PlayerList";
 import TeamDisplay from "./components/TeamDisplay";
 import Toast from "./components/Toast";
+import './index.css'
 
 export default function App() {
   const [players, setPlayers] = useState([]);
@@ -39,7 +40,16 @@ export default function App() {
   function createTeams() {
     if (players.length < 2) return;
 
+    // Ordena por habilidade (maior → menor)
     const sortedPlayers = [...players].sort((a, b) => b.skill - a.skill);
+
+    let extras = [];
+
+    // Se for ímpar, remove o último (menor habilidade)
+    if (sortedPlayers.length % 2 !== 0) {
+      const removed = sortedPlayers.pop(); // remove o mais fraco
+      extras.push(removed);
+    }
 
     const team1 = [];
     const team2 = [];
@@ -49,11 +59,12 @@ export default function App() {
       else team2.push(player);
     });
 
-    const calc = (team) => team.reduce((n, p) => n + p.skill, 0);
+    const calc = (team) => team.reduce((sum, p) => sum + p.skill, 0);
 
     setTeams({
       team1,
       team2,
+      extras,
       total1: calc(team1),
       total2: calc(team2),
     });
