@@ -43,6 +43,15 @@
         /* sombra suave */
         border: 1px solid rgba(255, 255, 255, 0.15) !important;
         /* detalhe elegante */
+        transition: all 0.3s ease-in-out !important;
+    }
+
+    .p-organizationchart-node-content:hover {
+        background: linear-gradient(135deg, #18c792, #1e5faa) !important;
+        /* degradê azul */
+        color: #fff !important;
+        transform: scale(1.05);
+        transition: all 0.3s ease-in-out !important;
     }
 
     /* LINHAS DE CONEXÃO */
