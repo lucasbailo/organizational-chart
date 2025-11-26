@@ -74,20 +74,20 @@ export const OrgChartPM: React.FC<{ data: any[] }> = ({ data }) => {
   };
 
   return (
-    <div className="flex flex-col gap-3 p-2">
+    <div className="flex flex-col gap-3 p-2 bg-gray-200">
 
       {/* BOTÕES */}
       <div className="flex gap-2 justify-center">
         <button
           onClick={() => setScale(s => Math.min(s + 0.1, 2))}
-          className="px-3 py-2 bg-blue-600 text-white rounded-2xl shadow cursor-pointer"
+          className="px-3 py-2 bg-blue-600 text-white rounded-2xl shadow cursor-pointer hover:bg-blue-500 hover:transform hover:scale-105 transition duration-300"
         >
           + Zoom In
         </button>
 
         <button
           onClick={() => setScale(s => Math.max(s - 0.1, 0.2))}
-          className="px-3 py-2 bg-blue-600 text-white rounded-2xl shadow cursor-pointer"
+          className="px-3 py-2 bg-blue-600 hover:bg-blue-500 hover:transform hover:scale-105 transition duration-300 text-white rounded-2xl shadow cursor-pointer"
         >
           - Zoom Out
         </button>
@@ -97,7 +97,7 @@ export const OrgChartPM: React.FC<{ data: any[] }> = ({ data }) => {
             setScale(1);
             setPos({ x: 0, y: 0 });
           }}
-          className="px-3 py-2 bg-gray-500 text-white rounded-2xl shadow cursor-pointer"
+          className="px-3 hover:bg-gray-400 hover:transform hover:scale-105 transition duration-300 py-2 bg-gray-500 text-white rounded-2xl shadow cursor-pointer"
         >
           🔄 Reset
         </button>
@@ -106,7 +106,7 @@ export const OrgChartPM: React.FC<{ data: any[] }> = ({ data }) => {
       {/* CONTAINER COM GESTO + DRAG */}
       <div
         ref={containerRef}
-        className="h-[calc(100vh-70px)] bg-gray-900 cursor-grab active:cursor-grabbing overflow-hidden flex justify-center border border-gray-700 rounded-2xl p-3"
+        className="flex justify-center items-center h-[calc(100vh-70px)] bg-gray-900 cursor-grab active:cursor-grabbing overflow-hidden flex justify-center border border-gray-700 rounded-2xl p-3"
         onPointerDown={handlePointerDown}
         onPointerMove={handlePointerMove}
         onPointerUp={handlePointerUp}
