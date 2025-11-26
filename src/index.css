@@ -30,6 +30,36 @@
 
 
 @layer utilities {
+
+    /* CARD PRINCIPAL */
+    .p-organizationchart-node-content {
+        background: linear-gradient(135deg, #0a3d62, #1e5faa) !important;
+        /* degradê azul */
+        color: #fff !important;
+        border-radius: 12px !important;
+        padding: 12px !important;
+
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25) !important;
+        /* sombra suave */
+        border: 1px solid rgba(255, 255, 255, 0.15) !important;
+        /* detalhe elegante */
+    }
+
+    /* LINHAS DE CONEXÃO */
+    .p-organizationchart .p-organizationchart-line-down,
+    .p-organizationchart .p-organizationchart-line-left,
+    .p-organizationchart .p-organizationchart-line-right,
+    .p-organizationchart .p-organizationchart-line-top {
+        border-color: #d4af37 !important;
+        /* dourado */
+    }
+
+    /* TEXTO */
+    .p-organizationchart-node-content .p-node-label {
+        color: #fff !important;
+        font-weight: 600;
+    }
+
     .text-shadow-inset {
         color: transparent;
         /* Tornando o texto transparente */
